@@ -1,0 +1,19 @@
+{% extends 'new.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<form action=""method="POST">
+    {% csrf_token %}
+    <div class="form" style="margin-left:400px">
+
+      <div class="col-sm-5">
+            {{ form | crispy }}
+
+      </div>
+       <a href="{% url 'table' %}" class="btn btn-info" role="button">Submit</a>
+    </div>
+
+</form>
+
+{% endblock %}

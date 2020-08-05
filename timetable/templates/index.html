@@ -1,0 +1,48 @@
+{% extends 'new.html' %}
+{% load static %}
+{% block content %}
+<html>
+<head>
+   <title>time table</title>
+</head>
+       <H1><FONT COLOR="DARKCYAN"><CENTER>COLLEGE TIME TABLE</FONT></H1>
+       <form action="/">
+           <input type="SUBMIT" value="add new">
+
+       </form>
+        <table border="2" cellspacing="3" align="center">
+       <tr>
+           <td align="center">
+          <td>8:30-9:30</td>
+          <td>9:30-10:30</td>
+          <td>10:3-11:30</td>
+          <td>11:30-12:30</td>
+          <td>12:30-2:00</td>
+          <td>2:00-3:00</td>
+          <td>3:00-4:00</td>
+          <td>4:00-5:00</td>
+           <td>update</td>
+           <td>remove</td>
+
+       </tr>
+        {% for i in data %}
+        <tr>
+            <td align="center"><font color="pink">{{i.Day}}<br>
+            <td align="center"><font color="pink">{{i.subject2}}<br>
+            <td align="center"><font color="red">{{i.subject3}}<br>
+            <td align="center"><font color="maroon">{{i.subject4}}<br>
+            <td align="center"><font color="brown">{{i.subject5}}<br>
+            <td align="center"><font color="brown">Lunch<br>
+            <td align="center"><font color="brown">{{i.subject5}}<br>
+            <td align="center">{{i.Subject6}}
+            <td align="center">{{i.Subject7}}
+            <td><a class="btn btn-sm btn-danger" href="{% url 'update_time' i.id %}">Update</a></td>
+            <td><a class="btn-btn-sm-info-blue" href="{% url 'delete' i.id %}">remove</a></td>
+       </tr>
+
+
+        {% endfor %}
+
+
+</html>
+{% endblock %}
